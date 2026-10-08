@@ -1,0 +1,664 @@
+@import url("https://fonts.googleapis.com/css2?family=ABeeZee&family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap");
+
+/* =========================================
+   GOJO SATORU | LIMITLESS PORTFOLIO
+========================================= */
+
+:root {
+  --void: #050711;
+  --night: #080d1d;
+  --panel: rgba(13, 24, 49, 0.82);
+  --panel-light: #101d39;
+
+  --blue: #2878ff;
+  --blue-bright: #64c7ff;
+  --ice: #dff6ff;
+  --cyan: #a3e7ff;
+  --purple: #845bff;
+  --purple-light: #c4a7ff;
+
+  --white: #f4f8ff;
+  --muted: #9aabc8;
+  --line: rgba(100, 199, 255, 0.25);
+
+  --font-heading: "Orbitron", sans-serif;
+  --font-body: "Rajdhani", sans-serif;
+
+  --radius: 18px;
+  --glow-blue: 0 0 25px rgba(40, 120, 255, 0.25);
+  --glow-purple: 0 0 30px rgba(132, 91, 255, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(30, 82, 180, 0.23),
+      transparent 48%
+    ),
+    radial-gradient(
+      ellipse at 100% 50%,
+      rgba(104, 56, 220, 0.1),
+      transparent 38%
+    ),
+    var(--void);
+}
+
+/* Tekstur cahaya halus di seluruh halaman */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(rgba(100, 199, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 199, 255, 0.025) 1px, transparent 1px);
+
+  background-size: 44px 44px;
+
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+::selection {
+  background: var(--blue);
+  color: white;
+}
+
+/* =========================================
+   HERO | SIX EYES
+========================================= */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 88vh;
+  padding: 85px 24px 100px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 40%,
+      rgba(38, 105, 255, 0.28),
+      transparent 34%
+    ),
+    radial-gradient(
+      ellipse at 50% 100%,
+      rgba(87, 47, 194, 0.2),
+      transparent 45%
+    ),
+    linear-gradient(180deg, #080e20 0%, #070a17 72%, var(--void) 100%);
+
+  border-bottom: 1px solid var(--line);
+}
+
+/* Lingkaran energi di belakang profil */
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: min(520px, 90vw);
+  aspect-ratio: 1;
+
+  border: 1px solid rgba(100, 199, 255, 0.2);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 0 25px rgba(40, 120, 255, 0.025),
+    0 0 0 55px rgba(40, 120, 255, 0.02),
+    inset 0 0 80px rgba(40, 120, 255, 0.08),
+    0 0 80px rgba(40, 120, 255, 0.1);
+
+  animation: infinityPulse 7s ease-in-out infinite;
+}
+
+/* Aura ungu */
+.hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 220px;
+  height: 220px;
+  bottom: 5%;
+  right: 8%;
+
+  background: var(--purple);
+  filter: blur(140px);
+  opacity: 0.22;
+  pointer-events: none;
+}
+
+@keyframes infinityPulse {
+  0%,
+  100% {
+    transform: scale(0.96) rotate(0deg);
+    opacity: 0.65;
+  }
+
+  50% {
+    transform: scale(1.04) rotate(8deg);
+    opacity: 1;
+  }
+}
+
+/* Foto profil Gojo */
+.profile-img {
+  position: relative;
+
+  width: 210px;
+  height: 210px;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 50%;
+  border: 2px solid var(--blue-bright);
+
+  margin-bottom: 32px;
+
+  background: var(--night);
+
+  box-shadow:
+    0 0 0 8px rgba(40, 120, 255, 0.08),
+    0 0 0 16px rgba(40, 120, 255, 0.035),
+    0 0 35px rgba(40, 120, 255, 0.55),
+    0 0 75px rgba(132, 91, 255, 0.2);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.profile-img:hover {
+  transform: scale(1.045);
+
+  box-shadow:
+    0 0 0 8px rgba(40, 120, 255, 0.12),
+    0 0 35px rgba(100, 199, 255, 0.7),
+    0 0 90px rgba(132, 91, 255, 0.35);
+}
+
+/* Nama utama */
+.name {
+  max-width: 100%;
+  margin-bottom: 12px;
+
+  color: var(--ice);
+  font-family: var(--font-heading);
+  font-size: clamp(30px, 6vw, 58px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: 3px;
+  overflow-wrap: anywhere;
+
+  text-shadow:
+    0 0 12px rgba(100, 199, 255, 0.65),
+    0 0 32px rgba(40, 120, 255, 0.4);
+}
+
+.bio {
+  max-width: 650px;
+  margin-top: 12px;
+
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: clamp(17px, 2.5vw, 21px);
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+
+/* =========================================
+   ABOUT | LIMITLESS INTERFACE
+========================================= */
+
+.about {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  width: min(1000px, calc(100% - 48px));
+  margin: 70px auto;
+  padding: clamp(25px, 5vw, 45px);
+
+  background: linear-gradient(
+    135deg,
+    rgba(17, 35, 71, 0.92),
+    rgba(8, 13, 29, 0.96)
+  );
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+
+  box-shadow:
+    var(--glow-blue),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.about::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  left: 0;
+
+  width: 4px;
+  height: 100%;
+
+  background: linear-gradient(
+    180deg,
+    var(--blue-bright),
+    var(--blue),
+    var(--purple)
+  );
+
+  box-shadow: 0 0 20px var(--blue);
+}
+
+.about h2 {
+  margin-bottom: 18px;
+
+  color: var(--blue-bright);
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 4vw, 30px);
+  letter-spacing: 1px;
+
+  text-shadow: 0 0 18px rgba(40, 120, 255, 0.3);
+}
+
+.about p {
+  color: #bdcbe1;
+  font-size: 19px;
+  line-height: 1.9;
+}
+
+/* =========================================
+   PORTFOLIO | CURSED TECHNIQUES
+========================================= */
+
+.portfolio {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  padding: 35px 24px 85px;
+
+  text-align: center;
+}
+
+.portfolio h2 {
+  position: relative;
+  display: inline-block;
+
+  margin-bottom: 45px;
+  padding-bottom: 18px;
+
+  color: var(--ice);
+  font-family: var(--font-heading);
+  font-size: clamp(25px, 4vw, 38px);
+  font-weight: 700;
+  letter-spacing: 2px;
+
+  text-shadow: 0 0 15px rgba(100, 199, 255, 0.45);
+}
+
+.portfolio h2::after {
+  content: "";
+  position: absolute;
+
+  width: 65%;
+  height: 2px;
+  bottom: 0;
+  left: 17.5%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--blue-bright),
+    var(--purple),
+    transparent
+  );
+
+  box-shadow: 0 0 12px var(--blue);
+}
+
+/* Susunan kartu */
+.portfolio-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 28px;
+
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* =========================================
+   PORTFOLIO CARD
+========================================= */
+
+.card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+
+  flex: 1 1 280px;
+  max-width: 350px;
+  min-width: 0;
+
+  padding: 18px;
+
+  text-align: left;
+
+  background: linear-gradient(
+    145deg,
+    rgba(20, 39, 77, 0.92),
+    rgba(8, 13, 29, 0.98) 75%
+  );
+
+  border: 1px solid rgba(100, 199, 255, 0.18);
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* Garis energi pada bagian atas kartu */
+.card::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--blue-bright),
+    var(--purple),
+    transparent
+  );
+
+  opacity: 0.8;
+  box-shadow: 0 0 14px rgba(100, 199, 255, 0.55);
+}
+
+/* Cahaya latar saat hover */
+.card::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 120px;
+  height: 120px;
+  top: 35%;
+  right: -70px;
+
+  background: var(--blue);
+  filter: blur(80px);
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-9px);
+
+  border-color: rgba(100, 199, 255, 0.7);
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.32),
+    0 0 24px rgba(40, 120, 255, 0.18),
+    0 0 45px rgba(132, 91, 255, 0.08);
+}
+
+.card:hover::after {
+  opacity: 0.22;
+}
+
+.card h3 {
+  margin: 5px 0 12px;
+
+  color: var(--blue-bright);
+  font-family: var(--font-heading);
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.card p {
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Gambar karya */
+.card img {
+  display: block;
+
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  object-position: center;
+
+  margin-bottom: 18px;
+
+  border: 1px solid rgba(100, 199, 255, 0.2);
+  border-radius: 10px;
+
+  filter: saturate(0.88) contrast(1.04);
+
+  transition:
+    transform 0.5s ease,
+    filter 0.5s ease;
+}
+
+.card:hover img {
+  transform: scale(1.025);
+  filter: saturate(1.1) contrast(1.06);
+}
+
+/* =========================================
+   FOOTER | THE ENDLESS VOID
+========================================= */
+
+footer {
+  position: relative;
+  overflow: hidden;
+
+  margin-top: 25px;
+  padding: 35px 20px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 0%,
+      rgba(40, 120, 255, 0.12),
+      transparent 65%
+    ),
+    #050711;
+
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+footer p {
+  font-size: 16px;
+}
+
+footer a {
+  color: var(--blue-bright);
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    color 0.25s ease,
+    text-shadow 0.25s ease;
+}
+
+footer a:hover {
+  color: white;
+  text-shadow: 0 0 12px var(--blue-bright);
+}
+
+/* =========================================
+   RESPONSIVE | TABLET DAN HP
+========================================= */
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75vh;
+    padding: 65px 20px 80px;
+  }
+
+  .profile-img {
+    width: 175px;
+    height: 175px;
+    margin-bottom: 28px;
+  }
+
+  .name {
+    letter-spacing: 1.5px;
+  }
+
+  .about {
+    margin: 45px auto;
+  }
+
+  .portfolio {
+    padding: 25px 20px 60px;
+  }
+
+  .portfolio-container {
+    gap: 22px;
+  }
+
+  .card {
+    flex: 1 1 260px;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding: 55px 18px 70px;
+  }
+
+  .hero::before {
+    width: 320px;
+  }
+
+  .profile-img {
+    width: 145px;
+    height: 145px;
+    margin-bottom: 25px;
+  }
+
+  .name {
+    font-size: clamp(25px, 8vw, 36px);
+    letter-spacing: 1px;
+  }
+
+  .bio {
+    font-size: 16px;
+    letter-spacing: 0.8px;
+  }
+
+  .about {
+    width: calc(100% - 30px);
+    margin: 30px auto;
+    padding: 24px 21px;
+    border-radius: 14px;
+  }
+
+  .about p {
+    font-size: 17px;
+  }
+
+  .portfolio {
+    padding: 25px 15px 50px;
+  }
+
+  .portfolio h2 {
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+  }
+
+  .portfolio-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 430px;
+    flex: none;
+    padding: 15px;
+  }
+
+  .card img {
+    height: 210px;
+  }
+
+  footer {
+    padding: 28px 15px;
+  }
+}
+
+/* Hormati preferensi pengguna yang mengurangi animasi */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
